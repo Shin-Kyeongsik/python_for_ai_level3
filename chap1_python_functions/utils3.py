@@ -30,6 +30,7 @@ def cal_std(scores):
 def is_prime(num):
     divisors = cal_divisors(num)
     if len(divisors) == 2:
-        return True
+        IS_PRIME = True
     else:
-        return False
+        IS_PRIME = False
+    return IS_PRIME
