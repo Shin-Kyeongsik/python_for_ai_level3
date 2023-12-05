@@ -1,7 +1,7 @@
 from utils import get_random_scores
 
 
-def cal_max_min(values, return_idx):
+def cal_max_min(values, return_idx=False):
     max_value, max_idx = None, None
     min_value, min_idx = None, None
     for idx, value in enumerate(values):
@@ -14,12 +14,14 @@ def cal_max_min(values, return_idx):
             min_idx = idx
 
     if return_idx:
-        return max_value, max_idx, min_value, min_idx
+        return {'max': max_value, 'min': min_value,
+                'max_idx': max_idx, 'min_idx': min_idx}
     else:
-        return max_value, min_value
+        return {'max': max_value, 'min': min_value}
 
 
 n_students = 100
-scores = get_random_scores(n_students)
-print(cal_max_min(scores, return_idx=True))
-print(cal_max_min(scores, return_idx=False))
+scores = get_random_scores(n_students=n_students)
+
+print(cal_max_min(values=scores))
+print(cal_max_min(values=scores, return_idx=True))
